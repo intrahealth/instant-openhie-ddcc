@@ -27,8 +27,8 @@ The DDCC IG is tested against the latest release versions of the primary compone
 
 | Workflow | Description |
 | --- | --- |
-| ![build ddcc fsh](https://github.com/intrahealth/instant-openhie-ddcc/actions/workflows/build_fsh/badge.svg) | Builds the FSH files in the DDCC using Sushi |
-| ![build ddcc ig](https://github.com/intrahealth/instant-openhie-ddcc/actions/workflows/build_ig/badge.svg) | Builds the DDCC IG using HL7 FHIR Publisher w/ Sushi|
+| ![build ddcc fsh](https://github.com/intrahealth/instant-openhie-ddcc/workflows/build_fsh/badge.svg) | Builds the FSH files in the DDCC using Sushi |
+| ![build ddcc ig](https://github.com/intrahealth/instant-openhie-ddcc/workflows/build_ig/badge.svg) | Builds the DDCC IG using HL7 FHIR Publisher w/ Sushi|
 
 ### Build FSH using Sushi
 
