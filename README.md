@@ -25,12 +25,10 @@ The DDCC IG is tested against the latest release versions of the primary compone
 
 ## Workflows
 
-| Badge | Workflow | Description |
+| Workflow | Description |
 | --- | --- | --- |
-| ![Build DDCC FSH](build_fsh) | Build FSH | Builds the FSH files in the DDCC using Sushi |
-| ![Build DDCC IG](build_ig) | Build IG | Builds the DDCC IG using HL7 FHIR Publisher w/ Sushi|
-<!-- | ![Confirm Instant OpenHIE Core Package](confirm_instantcore) | Confirms Instant OpenHIE Core runs | Runs the Instant OpenHIE Core package and confirms the Capability Statement is returned from base_url/metadata | -->
-<!-- | ![Run Transactions](run_transactions) | Runs DDCC transactions | -->
+| ![build ddcc fsh](https://github.com/intrahealth/instant-openhie-ddcc/actions/workflows/build_fsh/badge.svg) | Builds the FSH files in the DDCC using Sushi |
+| ![build ddcc ig](https://github.com/intrahealth/instant-openhie-ddcc/actions/workflows/build_ig/badge.svg) | Builds the DDCC IG using HL7 FHIR Publisher w/ Sushi|
 
 ### Build FSH using Sushi
 
@@ -62,9 +60,3 @@ if: ${{ !env.ACT }}
 ## Translation of this README
 
 An example of how to translate such READMEs is in the Jupyter (iPython) notebook `translate_readme.ipynb`.
-
-
-[build_fsh]: https://github.com/intrahealth/instant-openhie-ddcc/actions/workflows/build_fsh/badge.svg
-[build_ig]: https://github.com/intrahealth/instant-openhie-ddcc/actions/workflows/build_ig/badge.svg
-<!-- [confirm_instantcore]: https://github.com/intrahealth/instant-openhie-ddcc/actions/workflows/confirm_instantcore/badge.svg -->
-<!-- [run_transactions]: https://github.com/intrahealth/instant-openhie-ddcc/actions/workflows/run_transactions/badge.svg -->
