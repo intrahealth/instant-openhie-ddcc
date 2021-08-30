@@ -1,0 +1,5 @@
+# env/secrets
+.secrets
+
+# ipython
+.ipynb_checkpoints
