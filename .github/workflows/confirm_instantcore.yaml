@@ -73,7 +73,7 @@ jobs:
         # continue-on-error: true
 
       - name: Curl Capability Statement
-        run: curl -s 'http://localhost:8080/fhir/metadata' | jq . > capabilitystatement.json
+        run: curl -s 'http://localhost:31313/fhir/metadata' | jq . > capabilitystatement.json
         continue-on-error: true
 
       - name: Store Capability Statement

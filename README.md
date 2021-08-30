@@ -25,20 +25,18 @@ The DDCC IG is tested against the latest release versions of the primary compone
 
 ## Workflows
 
-| Workflow | Description |
-| --- | --- |
-| ![build ddcc fsh](https://github.com/intrahealth/instant-openhie-ddcc/workflows/build_fsh/badge.svg) | Builds the FSH files in the DDCC using Sushi |
-| ![build ddcc ig](https://github.com/intrahealth/instant-openhie-ddcc/workflows/build_ig/badge.svg) | Builds the DDCC IG using HL7 FHIR Publisher w/ Sushi|
-
-### Build FSH using Sushi
+### ![build ddcc fsh](https://github.com/intrahealth/instant-openhie-ddcc/workflows/build_fsh/badge.svg) Build FSH using Sushi
 
 Many IGs use FHIR Shorthand (FSH) to create conformance resources and examples. DDCC uses FSH. As a test, Sushi (aka "SUSHI Unshortens Short Hand Inputs") is run to generate JSON files from FSH files. Running this step indicates if there are any outstanding IG issues from the FSH files. This is helpful to do before running Publisher.
 
-### Build IG using Publisher
+### ![build ddcc ig](https://github.com/intrahealth/instant-openhie-ddcc/workflows/build_ig/badge.svg) Build IG using Publisher
 
 The `build_ig` workflow builds the DDCC Implementation Guide and outputs an artifact for the QA report. This is a different workflow than publishing an IG to GitHub Pages, for which DDCC is an [example](DDCC-ghpages).
 
 [Publisher](https://github.com/HL7/fhir-ig-publisher) creates a full IG output including HTML pages using the Ruby-based Jekyll engine. A helpful output from Publisher is the QA report `qa.html`. This is captured during the workflow and provided as an artifact on the workflow page. When Publisher runs and the IG is published, the QA report is linked on the footer of the pages.
+
+### ![confirm instant core](https://github.com/intrahealth/instant-openhie-ddcc/workflows/confirm_instantcore/badge.svg) Confirm Instant Core Package
+
 
 > Todo: Add Instant workflows after debugging
 
