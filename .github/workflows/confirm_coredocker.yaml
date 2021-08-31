@@ -1,0 +1,76 @@
+name: confirm_instantdocker
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches: 
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  confirm_instantdocker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout instant
+        uses: actions/checkout@v2
+        with:
+          repository: openhie/instant
+          ref: '0.0.5'
+
+      - run: ls -la
+
+      - name: Prepare instant
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - run: npm install -g yarn
+
+      - run: yarn install
+
+      # error from act: docker-compose: command not found
+      - name: docker-compose install if using act
+        run: |
+          sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+        if: ${{ env.ACT }}
+
+      - name: Launch Core
+        # fails looking to mount .kube - which it shouldn't try to mount anyway
+        # run: yarn docker:instant init -t docker core
+        working-directory: core/docker
+        # need to create vol or an error
+        run: |
+          docker volume create --name=instant
+          bash compose.sh init
+          bash compose.sh up
+
+
+      # wait for instant core to come up
+      - run: sleep 120
+
+      - name: curl patient
+        run: |
+          curl -H 'Authorization: Custom test' http://localhost:5001/fhir/Patient 
+
+      - name: Curl Capability Statement
+        run: |
+          curl -H 'Authorization: Custom test' http://localhost:5001/fhir/metadata  | jq . > capabilitystatement.json
+
+      - name: Store Capability Statement
+        uses: actions/upload-artifact@v2
+        if: ${{ !env.ACT }}
+        with:
+          name: capabilitystatement.json
+          path: capabilitystatement.json
+        continue-on-error: true
+
+      - name: Teardown Core
+        working-directory: core/docker
+        run: |
+          bash compose.sh destroy
+          docker volume rm instant

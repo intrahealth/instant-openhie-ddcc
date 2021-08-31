@@ -19,6 +19,7 @@ The DDCC IG is tested against the latest release versions of the primary compone
 | Java | **11.x** | Eclipse Temurin (formerly AdoptOpenJDK) |
 | Publisher | **1.1.77** | Will be updated due to frequent bug fixes |
 | Kubernetes | **1.21.1** | Uses [kind](https://github.com/kubernetes-sigs/kind/releases) default, Todo: Use Instant's default | 
+| Instant OpenHIE (core) | **0.0.5** |
 | HAPI FHIR Server | **5.4.1** |  |
 | OpenHIM Console | **1.14** |  |
 | OpenHIM API Server | **openhim-core:7** |  |
@@ -35,10 +36,12 @@ The `build_ig` workflow builds the DDCC Implementation Guide and outputs an arti
 
 [Publisher](https://github.com/HL7/fhir-ig-publisher) creates a full IG output including HTML pages using the Ruby-based Jekyll engine. A helpful output from Publisher is the QA report `qa.html`. This is captured during the workflow and provided as an artifact on the workflow page. When Publisher runs and the IG is published, the QA report is linked on the footer of the pages.
 
-### ![confirm instant core](https://github.com/intrahealth/instant-openhie-ddcc/workflows/confirm_instantcore/badge.svg) Confirm Instant Core Package
 
+### WIP: ![confirm instant docker core](https://github.com/intrahealth/instant-openhie-ddcc/workflows/confirm_coredocker/badge.svg) Confirm Instant Core Package on Docker Compose
 
-> Todo: Add Instant workflows after debugging
+### WIP: ![confirm instant k8s core](https://github.com/intrahealth/instant-openhie-ddcc/workflows/confirm_corek8s/badge.svg) Confirm Instant Core Package on Kubernetes
+
+> WIP: Still experiencing errors
 
 ## How to Run Locally
 
