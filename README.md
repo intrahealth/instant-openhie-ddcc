@@ -39,9 +39,7 @@ The `build_ig` workflow builds the DDCC Implementation Guide and outputs an arti
 
 ### WIP: ![confirm instant docker core](https://github.com/intrahealth/instant-openhie-ddcc/workflows/confirm_coredocker/badge.svg) Confirm Instant Core Package on Docker Compose
 
-### WIP: ![confirm instant k8s core](https://github.com/intrahealth/instant-openhie-ddcc/workflows/confirm_corek8s/badge.svg) Confirm Instant Core Package on Kubernetes
-
-> WIP: Still experiencing errors
+> WIP
 
 ## How to Run Locally
 

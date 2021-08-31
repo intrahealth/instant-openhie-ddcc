@@ -1,4 +1,4 @@
-name: confirm_instantdocker
+name: confirm_coredocker
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  confirm_instantdocker:
+  confirm_coredocker:
     runs-on: ubuntu-latest
 
     steps:
