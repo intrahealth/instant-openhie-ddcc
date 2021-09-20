@@ -49,7 +49,7 @@ jobs:
         if: ${{ !env.ACT }}
         with:
           name: submithealthevent.png
-          path: submithealthevent.png
+          path: tests/submithealthevent.png
         continue-on-error: true
 
       - name: Teardown
