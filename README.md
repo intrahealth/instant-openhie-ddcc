@@ -12,6 +12,7 @@ The DDCC IG is tested against the latest release versions of the primary compone
 | --- | --- | --- |
 | Ubuntu (ubuntu-latest) | **20.04** | GitHub Actions (nektos/act image is different)  |
 | DDCC IG | **head of main branch** | All runs use the latest main branch |
+| DDCC Transactions Mediator | **head of main branch** All runs use the latest main branch |
 | FHIR | **4.0.1** | Todo: matrix against new FHIR releases |
 | Node | **16.x** LTS | |
 | Jekyll | **4.2.0** | |
@@ -40,6 +41,10 @@ The `build_ig` workflow builds the DDCC Implementation Guide and outputs an arti
 ### WIP: ![confirm instant docker core](https://github.com/intrahealth/instant-openhie-ddcc/workflows/confirm_coredocker/badge.svg) Confirm Instant Core Package on Docker Compose
 
 > WIP
+
+### ![submit health event](https://github.com/intrahealth/instant-openhie-ddcc/workflows/submithealthevent/badge.svg) Submit Health Event to DDCC Transactions Mediator
+
+Artifact: PNG of QR Code
 
 ## How to Run Locally
 
