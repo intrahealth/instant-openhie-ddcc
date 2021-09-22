@@ -12,7 +12,7 @@ The DDCC IG is tested against the latest release versions of the primary compone
 | --- | --- | --- |
 | Ubuntu (ubuntu-latest) | **20.04** | GitHub Actions (nektos/act image is different)  |
 | DDCC IG | **head of main branch** | All runs use the latest main branch |
-| DDCC Transactions Mediator | **head of main branch** All runs use the latest main branch |
+| DDCC Transactions Mediator | **head of main branch** | All runs use the latest main branch |
 | FHIR | **4.0.1** | Todo: matrix against new FHIR releases |
 | Node | **16.x** LTS | |
 | Jekyll | **4.2.0** | |
