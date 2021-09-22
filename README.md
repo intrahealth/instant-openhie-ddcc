@@ -38,9 +38,7 @@ The `build_ig` workflow builds the DDCC Implementation Guide and outputs an arti
 [Publisher](https://github.com/HL7/fhir-ig-publisher) creates a full IG output including HTML pages using the Ruby-based Jekyll engine. A helpful output from Publisher is the QA report `qa.html`. This is captured during the workflow and provided as an artifact on the workflow page. When Publisher runs and the IG is published, the QA report is linked on the footer of the pages.
 
 
-### WIP: ![confirm instant docker core](https://github.com/intrahealth/instant-openhie-ddcc/workflows/confirm_coredocker/badge.svg) Confirm Instant Core Package on Docker Compose
-
-> WIP
+### ![confirm instant docker core](https://github.com/intrahealth/instant-openhie-ddcc/workflows/confirm_coredocker/badge.svg) Confirm Instant Core Package on Docker Compose (WIP)
 
 ### ![submit health event](https://github.com/intrahealth/instant-openhie-ddcc/workflows/submithealthevent/badge.svg) Submit Health Event to DDCC Transactions Mediator
 
