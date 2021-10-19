@@ -1,0 +1,79 @@
+name: run_transactions
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches: 
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  run_transactions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout this repo
+        uses: actions/checkout@v2
+        with:
+          path: main
+          # branch
+          ref: main
+
+      - name: Checkout other repo
+        uses: actions/checkout@v2
+        with:
+          repository: WorldHealthOrganization/ddcc
+          path: ddcc
+          # branch
+          ref: main
+          # token: ${{ secrets.GITHUB_TOKEN || github.token }}
+          # if running with act, then 'act -s GITHUB_TOKEN=$GITHUB_TOKEN' or 'act -s GITHUB_TOKEN'
+
+      - name: Checkout instant
+        uses: actions/checkout@v2
+        with:
+          repository: openhie/instant
+          path: instant
+          # ref: master
+
+      - name: Prepare instant
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install -g yarn
+      - run: yarn install
+      # - run: npm test
+
+      # create kind cluster
+      - uses: engineerd/setup-kind@v0.5.0
+
+      # have to add kubectl if using act as the runner bc its missing, not req for github actions workers
+      - name: Some step
+        if: ${{ env.ACT }}
+        # if: ${{ !env.ACT }}
+        run: |
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+      - name: Testing
+        run: |
+          kubectl cluster-info
+          kubectl get pods -n kube-system
+          echo "current-context:" $(kubectl config current-context)
+          echo "environment-kubeconfig:" ${KUBECONFIG}
+
+      - name: Interact with the cluster
+        run: kubectl get nodes
+
+      - name: Launch Core
+        run: yarn docker:instant init -t k8s core
+        # allow for troubleshooting
+        working-directory: ./instant
+        continue-on-error: true
+
+      # cleanup
+      - name: Delete Kind cluster
+        run: kind delete cluster
