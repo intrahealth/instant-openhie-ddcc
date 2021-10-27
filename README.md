@@ -1,3 +1,5 @@
+This site is archived. The updated site is: https://github.com/openhie/ddcc-tests
+
 # Testing framework for Digital Documentation of COVID-19 Certificates (DDCC)
 
 Read this in [English](README.md), [française](README.fr.md), [中文](README.zh.md), [русский](README.ru.md), [español](README.es.md), [العربية](README.ar.md)
